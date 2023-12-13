@@ -1,0 +1,41 @@
+##Application Name to appear in Azure App Insights
+spring:
+  application:
+    name: template-request-handler
+  ##Properties for Mongo
+  data:
+    mongodb:
+      database: TEST
+      uri: mongodb://localhost:27017
+      auto-index-creation: true
+
+server:
+  port: 8080
+  application:
+    name: template-request-handler
+##Properties for Prometheus End Points
+endpoints:
+  prometheus:
+    enabled: true
+management:
+  endpoints:
+    web:
+      base-path: "/ah/merchandising/template/v1"
+      exposure:
+        include: "*"
+##OpenAPI To Enable
+springdoc:
+  swagger-ui.path: "/ah/merchandising/template/v1/swagger/swagger-ui-custom.html"
+  api-docs.path: "/ah/merchandising/template/v1/swagger/api-docs"
+##Azure Cosmos Credentials and App Insights Key
+azure:
+  application-insights:
+    instrumentation-key:
+
+
+service:
+  pagination:
+    page-size:
+      default: 5
+  security:
+    api-key: 22
